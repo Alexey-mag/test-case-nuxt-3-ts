@@ -23,6 +23,7 @@
                 value="worker" 
                 class="mr-2 w-4 h-4"
                 :disabled="mode == 'edit'"
+                @click="clearPhone"
                 />
                 <label for="surnames">Работник</label>
             </div>
@@ -88,6 +89,10 @@ const { user, setUser } = useUser()
 watch(currentUser, (value) => {
     setUser({ ...value })
 })
+
+const clearPhone = () => {
+    user.value.phone = ''
+}
 
 const save = () => {
     onUpdate()
